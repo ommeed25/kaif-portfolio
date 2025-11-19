@@ -16,8 +16,9 @@
         body {
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
         }
 
         .container {
@@ -248,7 +249,7 @@
             position: fixed;
             top: 20px;
             right: 20px;
-            background: #667eea;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             color: white;
             border: none;
             border-radius: 50%;
@@ -257,12 +258,191 @@
             cursor: pointer;
             z-index: 1001;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
         }
 
         .theme-toggle:hover {
-            background: #764ba2;
-            transform: scale(1.1);
+            transform: scale(1.1) rotate(10deg);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .theme-toggle::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .theme-toggle:hover::before {
+            opacity: 1;
+        }
+
+        /* Demo Section */
+        .demo {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .demo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="80" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="60" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="60" cy="30" r="1.5" fill="rgba(255,255,255,0.1)"/></svg>');
+            opacity: 0.1;
+        }
+
+        .demo-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .demo-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ffffff, #e0e6ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .demo-features {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .feature-item i {
+            font-size: 1.5rem;
+            color: #4fc3f7;
+        }
+
+        .demo-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .stat-box .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .demo-contact h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .contact-methods {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+
+        .demo-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            text-align: center;
+            justify-content: center;
+        }
+
+        .demo-btn.primary {
+            background: #4caf50;
+            color: white;
+        }
+
+        .demo-btn.primary:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .demo-btn.secondary {
+            background: #2196f3;
+            color: white;
+        }
+
+        .demo-btn.secondary:hover {
+            background: #1976d2;
+            transform: translateY(-2px);
+        }
+
+        .demo-btn.whatsapp {
+            background: #25d366;
+            color: white;
+        }
+
+        .demo-btn.whatsapp:hover {
+            background: #128c7e;
+            transform: translateY(-2px);
+        }
+
+        .demo-note {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 1rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+            border-left: 4px solid #4fc3f7;
         }
 
         /* Testimonials Section */
@@ -270,6 +450,7 @@
             padding: 100px 0;
             background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
             color: white;
+            position: relative;
         }
 
         .testimonial-card {
@@ -680,9 +861,51 @@
             .blog-grid {
                 grid-template-columns: 1fr;
             }
+
+            .demo-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .demo-features {
+                grid-template-columns: 1fr;
+            }
+
+            .demo-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-card {
+                margin: 1rem 0;
+            }
         }
 
-        /* Scroll Animation */
+        /* Print Styles */
+        @media print {
+            .theme-toggle,
+            .nav-links {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: black !important;
+            }
+
+            .hero,
+            .demo,
+            .testimonials {
+                background: white !important;
+                color: black !important;
+                -webkit-print-color-adjust: exact;
+            }
+        }
+
+        /* Custom Animations */
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -694,8 +917,111 @@
             }
         }
 
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes bounceIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.3);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+            70% {
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
         .fade-in {
             animation: fadeInUp 0.6s ease-out;
+        }
+
+        .slide-in-left {
+            animation: slideInLeft 0.8s ease-out;
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .bounce-in {
+            animation: bounceIn 1s ease-out;
+        }
+
+        .float-animation {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(135deg, #5a67d8, #6b46c1);
+        }
+
+        /* Selection Styling */
+        ::selection {
+            background: rgba(102, 126, 234, 0.3);
+            color: #2c3e50;
+        }
+
+        ::-moz-selection {
+            background: rgba(102, 126, 234, 0.3);
+            color: #2c3e50;
+        }
+
+        /* Focus Styles */
+        button:focus,
+        a:focus,
+        input:focus,
+        textarea:focus {
+            outline: 2px solid #667eea;
+            outline-offset: 2px;
         }
     </style>
 </head>
@@ -712,6 +1038,7 @@
             <ul class="nav-links">
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
+                <li><a href="#demo">Demo</a></li>
                 <li><a href="#testimonials">Testimonials</a></li>
                 <li><a href="#blog">Blog</a></li>
                 <li><a href="#projects">Projects</a></li>
@@ -861,6 +1188,77 @@
                         <span class="skill-tag">Prompt Engineering</span>
                         <span class="skill-tag">Rapid Prototyping</span>
                         <span class="skill-tag">Code Optimization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="demo">
+        <div class="container">
+            <h2 class="section-title">🚀 Partnership Outreach Platform Demo</h2>
+            <div class="demo-content">
+                <div class="demo-text">
+                    <h3>Experience My Full-Stack Automation Solution</h3>
+                    <p>I've built a comprehensive B2B partnership outreach platform that automates lead generation and email campaigns. This production-ready application processes 500+ company contacts and achieves 100% email delivery success.</p>
+
+                    <div class="demo-features">
+                        <div class="feature-item">
+                            <i class="fas fa-robot"></i>
+                            <span>Automated Lead Generation</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>SMTP Email Campaigns</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-database"></i>
+                            <span>SQLite Database Management</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-chart-line"></i>
+                            <span>Real-time Analytics Dashboard</span>
+                        </div>
+                    </div>
+
+                    <div class="demo-stats">
+                        <div class="stat-box">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Contacts Processed</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Email Success Rate</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number">24/7</div>
+                            <div class="stat-label">Automated Operation</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="demo-contact">
+                    <h3>Request a Live Demo</h3>
+                    <p>Want to see the platform in action? I'd be happy to show you a personalized demo of how it works.</p>
+
+                    <div class="contact-methods">
+                        <a href="mailto:mdkaifkotwal@gmail.com?subject=Partnership Outreach Platform Demo Request" class="demo-btn primary">
+                            <i class="fas fa-envelope"></i>
+                            Email for Demo
+                        </a>
+                        <a href="tel:+919067967840" class="demo-btn secondary">
+                            <i class="fas fa-phone"></i>
+                            Call: +91-9067967840
+                        </a>
+                        <a href="https://wa.me/919067967840?text=Hi%20Kaif,%20I'd%20like%20to%20see%20a%20demo%20of%20your%20Partnership%20Outreach%20Platform" class="demo-btn whatsapp" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            WhatsApp Demo
+                        </a>
+                    </div>
+
+                    <div class="demo-note">
+                        <p><strong>Demo Includes:</strong> Live platform walkthrough, code explanation, and Q&A session</p>
                     </div>
                 </div>
             </div>
@@ -1150,30 +1548,57 @@
             alert('Thank you for your message! Your email client has been opened.');
         });
 
-        // Fade in animation on scroll
+        // Enhanced scroll animations with staggered effects
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
         };
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
+            entries.forEach((entry, index) => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
+                    const delay = index * 200; // Stagger animations
 
-                    // Animate counters when stats section is visible
-                    if (entry.target.id === 'about') {
-                        setTimeout(animateCounters, 500);
-                    }
+                    setTimeout(() => {
+                        entry.target.classList.add('fade-in');
 
-                    // Animate skill bars when skills section is visible
-                    if (entry.target.id === 'skills') {
-                        setTimeout(() => {
-                            document.querySelectorAll('.progress-fill').forEach(bar => {
-                                bar.style.width = bar.style.width || '0%';
-                            });
-                        }, 500);
-                    }
+                        // Add specific animations based on section
+                        if (entry.target.id === 'about') {
+                            entry.target.classList.add('slide-in-left');
+                            setTimeout(animateCounters, 800);
+                        }
+
+                        if (entry.target.id === 'skills') {
+                            entry.target.classList.add('slide-in-right');
+                            setTimeout(() => {
+                                document.querySelectorAll('.progress-fill').forEach((bar, barIndex) => {
+                                    setTimeout(() => {
+                                        bar.style.width = bar.style.width || '0%';
+                                    }, barIndex * 200);
+                                });
+                            }, 600);
+                        }
+
+                        if (entry.target.id === 'demo') {
+                            entry.target.classList.add('bounce-in');
+                        }
+
+                        if (entry.target.id === 'testimonials') {
+                            entry.target.classList.add('slide-in-left');
+                        }
+
+                        if (entry.target.id === 'blog') {
+                            entry.target.classList.add('slide-in-right');
+                        }
+
+                        if (entry.target.id === 'projects') {
+                            entry.target.classList.add('fade-in');
+                        }
+
+                        if (entry.target.id === 'contact') {
+                            entry.target.classList.add('bounce-in');
+                        }
+                    }, delay);
                 }
             });
         }, observerOptions);
@@ -1182,6 +1607,53 @@
         document.querySelectorAll('section').forEach(section => {
             observer.observe(section);
         });
+
+        // Add floating animation to key elements
+        document.addEventListener('DOMContentLoaded', () => {
+            // Add float animation to project cards on hover
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.addEventListener('mouseenter', () => {
+                    card.classList.add('float-animation');
+                });
+                card.addEventListener('mouseleave', () => {
+                    card.classList.remove('float-animation');
+                });
+            });
+
+            // Add click ripple effect to buttons
+            document.querySelectorAll('.btn, .demo-btn, .submit-btn').forEach(button => {
+                button.addEventListener('click', function(e) {
+                    const ripple = document.createElement('span');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(255, 255, 255, 0.6)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'ripple 0.6s linear';
+                    ripple.style.left = (e.offsetX - 10) + 'px';
+                    ripple.style.top = (e.offsetY - 10) + 'px';
+                    ripple.style.width = '20px';
+                    ripple.style.height = '20px';
+
+                    this.appendChild(ripple);
+
+                    setTimeout(() => {
+                        ripple.remove();
+                    }, 600);
+                });
+            });
+        });
+
+        // Add ripple animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes ripple {
+                to {
+                    transform: scale(4);
+                    opacity: 0;
+                }
+            }
+        `;
+        document.head.appendChild(style);
 
         // Mobile navigation toggle (optional)
         const nav = document.querySelector('nav');
